@@ -26,14 +26,13 @@ git clone https://github.com/sparrow-rose/DogBreed_Project.git
 cd ./DogBreed_Project
 ```
 
-2. Copy your mystery sequence into the **/data** folder - *please ensure you note the filename of your mystery sequence*
+2. Copy your mystery sequence into the **/data/seq** folder - *please ensure your mystery sequence is in .fasta format!*
 
 3. Run the .py file within the **/src** folder
 
 ```bash
 cd ./DogBreed_Project/src/
+python similarity_checker
 ```
 
-4. In the terminal, enter the filename of your mystery sequence
-
-5. Once the program has run, locate your results in the **/results/final** folder. 
+4. Once the program has run, locate your results in the **/results/final** folder. 
