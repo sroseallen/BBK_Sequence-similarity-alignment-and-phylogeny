@@ -33,4 +33,4 @@ for k, v in dog_database.items():
     aligner = Align.PairwiseAligner()
     alignment = aligner.align(v, mystery_seq.seq)
     alignment_scoring[k] = alignment.score
-print(max(dict, key = dict.get)) # to make this output nicer eg an information file in the results folder
+print(max(alignment_scoring, key = alignment_scoring.get), max(alignment_scoring)) # to make this output nicer eg an information file in the results folder
