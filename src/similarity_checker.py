@@ -51,7 +51,12 @@ dog_database = dog_database.sort_values("align_score")
 dog_database.to_csv("results/final/similarity_alignment.csv")
 
 # probability scores
-# 
+# scipy.stats import pearsonr (standard correlation coefficient)
+# def pearsonr_pval(x,y):return pearsonr(x,y)[1]
+# corr = df.corr(method=pearsonr_pval) - generates a correlation matrix for all sequences vs all sequences in the database
+# perhaps more usefully: define col in dataframe for p-value
+# then, for each row, call pearsonr_pval on the alignment score against the maximum possible alignment score (ie: alignment of the mystery sequence with itself)
+# hopefully, this would then return a pearson correlation p-value for that sequence against the mystery sequence?
 
 # phylogeny tree
 # global multiple sequence alignment for database of sequences
