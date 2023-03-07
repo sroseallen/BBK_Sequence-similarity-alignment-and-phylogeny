@@ -1,7 +1,7 @@
 from Bio import SeqIO
 from Bio import Align
 import os
-import scipy as sc
+import scipy.stats as sc
 import pandas as pd
 from Bio.Phylo import TreeConstruction
 
@@ -56,6 +56,24 @@ dog_database.to_csv("results/final/similarity_alignment.csv")
 # corr = df.corr(method=pearsonr_pval) - generates a correlation matrix for all sequences vs all sequences in the database
 # perhaps more usefully: define col in dataframe for p-value
 # then, for each row, call pearsonr_pval on the alignment score against the maximum possible alignment score (ie: alignment of the mystery sequence with itself)
+# test for normal distribution
+def normal_test(df):
+    a, p = sc.normaltest(df)
+    if p < 0.001:
+        return True
+    else:
+        return False
+
+# decision between pearson and spearman test for statistical significance
+def significance_p(df1, df2, df1_normal=True, df2_normal=True):
+    if df1_normal==True and df2_normal==True: #if parametric
+        pearson=sc.pearsonr(df1, df2)[1]
+        print("pearson used:", pearson)
+        return pearson
+    else: # non-parametric test needed, at least one dataset not normally distributed
+        spearman=sc.spearmanr(df1, df2)[1]
+        print("spearman used")
+        return spearman
 # hopefully, this would then return a pearson correlation p-value for that sequence against the mystery sequence?
 
 # phylogeny tree
