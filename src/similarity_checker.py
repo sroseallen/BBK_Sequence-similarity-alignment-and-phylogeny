@@ -1,8 +1,11 @@
 from Bio import SeqIO
+from Bio.Seq import Seq
 from Bio import Align
 import os
-import scipy.stats as sc
 import pandas as pd
+import numpy as np
+import scipy.stats as sc
+import random
 from Bio.Phylo import TreeConstruction
 
 # To self: need to tidy up code into functions, possibly a 'Mystery' Class for the unknown sequence that allows comparison, probability table, and phylogeny functions? 
@@ -41,40 +44,41 @@ for filename in os.listdir(sequence_directory): # generic to allow any named fas
 # comparison module
 # tests: length of sequence = the same? 
 alignment_scoring = []
+
+# set up the aligner
+aligner = Align.PairwiseAligner()
+aligner.mode = "global"
+
+# shuffle the mystery sequence several times and store (for p-value calculation)
+shuffled_seqs = []
+for iterations in range(1, 100):
+    shuffled_seq = np.random.permutation(np.array(list(str(mystery_seq.seq))))
+    shuffled_seq = Seq(''.join(shuffled_seq))
+    shuffled_seqs.append(shuffled_seq)
+
+# perform alignment for the mystery sequence against all sequences in the database
 for i in dog_database.index:
     print("Now checking alignment with:", i, dog_database.loc[i, "breed"]) # progress bar
-    aligner = Align.PairwiseAligner()
     alignment = aligner.align(dog_database.loc[i, "sequence"], mystery_seq.seq) # Needleman-Wunsch/global alignment
     dog_database.loc[i, "align_score"] = alignment.score # writes alignment score to dataframe, saves
-dog_database = dog_database.sort_values("align_score")
+    
+    # calculate alignment scores for the shuffles mystery sequences, find p-value based on this
+    # (p-value = proportion of randomly shuffled sequence scores being equal or greater than the original alignment score)
+    for j in shuffled_seqs:
+        shuffled_scores = []
+        shuffled_alignment = aligner.align(dog_database.loc[i, "sequence"], j)
+        shuffled_scores.append(shuffled_alignment.score)
+        p_value = sum(score >= dog_database.loc[i, "align_score"] for score in shuffled_scores) / 100
+        dog_database.loc[i, "p_value_randomseq"] = p_value
 
+# output table of aligned scores sorted by alignment score
+dog_database = dog_database.sort_values("align_score")
 dog_database.to_csv("results/final/similarity_alignment.csv")
 
 # probability scores
 # scipy.stats import pearsonr (standard correlation coefficient)
 # def pearsonr_pval(x,y):return pearsonr(x,y)[1]
 # corr = df.corr(method=pearsonr_pval) - generates a correlation matrix for all sequences vs all sequences in the database
-# perhaps more usefully: define col in dataframe for p-value
-# then, for each row, call pearsonr_pval on the alignment score against the maximum possible alignment score (ie: alignment of the mystery sequence with itself)
-# test for normal distribution
-def normal_test(df):
-    a, p = sc.normaltest(df)
-    if p < 0.001:
-        return True
-    else:
-        return False
-
-# decision between pearson and spearman test for statistical significance
-def significance_p(df1, df2, df1_normal=True, df2_normal=True):
-    if df1_normal==True and df2_normal==True: #if parametric
-        pearson=sc.pearsonr(df1, df2)[1]
-        print("pearson used:", pearson)
-        return pearson
-    else: # non-parametric test needed, at least one dataset not normally distributed
-        spearman=sc.spearmanr(df1, df2)[1]
-        print("spearman used")
-        return spearman
-# hopefully, this would then return a pearson correlation p-value for that sequence against the mystery sequence?
 
 # phylogeny tree
 # global multiple sequence alignment for database of sequences
