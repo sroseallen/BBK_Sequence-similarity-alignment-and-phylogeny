@@ -8,7 +8,7 @@ from Bio.Phylo import TreeConstruction
 # To self: need to tidy up code into functions, possibly a 'Mystery' Class for the unknown sequence that allows comparison, probability table, and phylogeny functions? 
 
 # read in the dog breed database
-database_file = ".\data\dog_breeds.fa"
+database_file = ".\data\dog_breeds_short.fa"
 database_list = list(SeqIO.parse(database_file, "fasta")) #Note: parses seqeucne attributes as a string
 
 breeds = [] # initialise lists for input into pandas dataframe
