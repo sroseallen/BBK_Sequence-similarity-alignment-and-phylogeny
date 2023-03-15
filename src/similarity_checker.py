@@ -61,7 +61,6 @@ mystery_freq = {"A": mystery_seq.count("A") / m,
                 "T": mystery_seq.count("T") / m,
                 "G": mystery_seq.count("G") / m}
 p1 = sum(mystery_freq.values())
-print(p1)
 
 # perform alignment for the mystery sequence against all sequences in the database
 for i in dog_database.index:
@@ -77,17 +76,7 @@ for i in dog_database.index:
                 "T": dog_database.loc[i, "sequence"].count("T") / len(dog_database.loc[i, "sequence"]),
                 "G": dog_database.loc[i, "sequence"].count("G") / len(dog_database.loc[i, "sequence"])}
     
-    # expected frequency of each aligned base pair given composition of the mystery_seq and the dog_database seq
-    expected_freq = {"A": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}, 
-                     "C": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}, 
-                     "T": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}, 
-                     "G": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}}
-    
-    p = 0 # sum of all expected frequencies, should be ~1
-    for base in mystery_freq:
-        for base2 in dog_freq:
-            expected_freq[base][base2] = mystery_freq[base] * dog_freq[base2]
-            p += expected_freq[base][base2]
+    p2 = sum(dog_freq.values()) # sum of all expected frequencies, should be ~1
 
     # count of the observed aligned pairs
     observed_freq = {"A": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}, 
@@ -108,8 +97,8 @@ for i in dog_database.index:
             observed_freq[i][j] = observed_freq[i][j] / len(mystery_seq)
             q += observed_freq[i][j]
 
-    normalised_score = math.log(q / p) # equation to get Sλ, normalised score in K-A equation
-    print(normalised_score)
+    normalised_score = 1 / (math.log(q / (p1*p2))) # equation to get Sλ, normalised score in K-A equation
+    print(normalised_score / alignment.score)
 
     # generate E and P values
     e_value = k * m * n * math.exp(-normalised_score) # probability of getting a score more than the one you generate above
