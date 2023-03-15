@@ -1,6 +1,7 @@
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio import Align
+import Bio.Align.AlignInfo as AlgnInfo
 import math
 import os
 import pandas as pd
@@ -12,7 +13,7 @@ from Bio.Phylo import TreeConstruction
 # To self: need to tidy up code into functions, possibly a 'Mystery' Class for the unknown sequence that allows comparison, probability table, and phylogeny functions? 
 
 # read in the dog breed database
-database_file = ".\data\dog_breeds.fa"
+database_file = ".\data\dog_breeds_short.fa"
 database_list = list(SeqIO.parse(database_file, "fasta")) #Note: parses seqeucne attributes as a string
 
 breeds = [] # initialise lists for input into pandas dataframe
@@ -47,10 +48,20 @@ for filename in os.listdir(sequence_directory): # generic to allow any named fas
 # tests: length of sequence = the same? 
 alignment_scoring = []
 aligner = Align.PairwiseAligner()
-aligner.mode = "local" # set to global for the global alignment function. Local alignment is slower than global.
+aligner.mode = "local" # set to local to allow E-value calculation (model for E-value is based on local alignments)
 
-# set up Karlin-Altschul parameters
+# set up Karlin-Altschul parameters for E-value and P-value generation
+k = 0.1 # default value for k, normalising constant. Given in 'BLAST: An essential guide to the Basic Local Alignment Tool, 2003'
+m = len(mystery_seq)
+n = len("".join(dog_database["sequence"]))
 
+# frequency of all bases in the mystery sequence
+mystery_freq = {"A": mystery_seq.count("A") / m,
+                "C": mystery_seq.count("C") / m,
+                "T": mystery_seq.count("T") / m,
+                "G": mystery_seq.count("G") / m}
+p1 = sum(mystery_freq.values())
+print(p1)
 
 # perform alignment for the mystery sequence against all sequences in the database
 for i in dog_database.index:
@@ -58,9 +69,50 @@ for i in dog_database.index:
     alignment = aligner.align(dog_database.loc[i, "sequence"], mystery_seq.seq) # Smith-Waterman local alignment
     dog_database.loc[i, "align_score"] = alignment.score # writes alignment score to dataframe, saves
     
-    # For local alignments only: Karlin-Altschul Algorithm (E- and P-value for statistical quality of alignment, same algorithm as BLASTn)
-    score = alignment.score 
-    e_value = 0.041 * len(mystery_seq) * len(dog_database.index) * math.exp(-0.267 * score) # probability of getting a score more than the one you generate above
+    # For local alignments only: Karlin-Altschul Algorithm (E- and P-value for statistical quality of alignment, same algorithm as BLASTn): Scoring Matrix Generation
+    # frequency of all bases in dog_database sequence
+    dog_freq = {"A" : 0, "C" : 0, "T" : 0, "G" : 0}
+    dog_freq = {"A": dog_database.loc[i, "sequence"].count("A") / len(dog_database.loc[i, "sequence"]),
+                "C": dog_database.loc[i, "sequence"].count("C") / len(dog_database.loc[i, "sequence"]),
+                "T": dog_database.loc[i, "sequence"].count("T") / len(dog_database.loc[i, "sequence"]),
+                "G": dog_database.loc[i, "sequence"].count("G") / len(dog_database.loc[i, "sequence"])}
+    
+    # expected frequency of each aligned base pair given composition of the mystery_seq and the dog_database seq
+    expected_freq = {"A": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}, 
+                     "C": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}, 
+                     "T": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}, 
+                     "G": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}}
+    
+    p = 0 # sum of all expected frequencies, should be ~1
+    for base in mystery_freq:
+        for base2 in dog_freq:
+            expected_freq[base][base2] = mystery_freq[base] * dog_freq[base2]
+            p += expected_freq[base][base2]
+
+    # count of the observed aligned pairs
+    observed_freq = {"A": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}, 
+                     "C": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}, 
+                     "T": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}, 
+                     "G": {"A" : 0, "C" : 0, "T" : 0, "G" : 0}}
+
+    for i, j in zip(alignment.sequences[0], alignment.sequences[1]):
+        if i not in dog_freq or j not in dog_freq:
+            continue
+        else:
+            observed_freq[i][j] += 1
+
+    # converting counts into frequencies
+    q = 0 # sum of all observed frequencies, should be ~1
+    for i in observed_freq:
+        for j in observed_freq.get(i):
+            observed_freq[i][j] = observed_freq[i][j] / len(mystery_seq)
+            q += observed_freq[i][j]
+
+    normalised_score = math.log(q / p) # equation to get Sλ, normalised score in K-A equation
+    print(normalised_score)
+
+    # generate E and P values
+    e_value = k * m * n * math.exp(-normalised_score) # probability of getting a score more than the one you generate above
     p_value = 1 - math.exp(-e_value) # estimates p-value from e-value. Assumes a Gumbel extreme value distribution of sequences.
     print(e_value, p_value)
     dog_database.loc[i, "E_value"] = e_value # writes alignment score to dataframe, saves
