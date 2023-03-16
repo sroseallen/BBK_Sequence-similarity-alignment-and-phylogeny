@@ -7,7 +7,7 @@ This is a package designed to compare an input DNA sequence, compare its similar
 
 3. An adaptable phylogeny tree containing your input sequence and all sequences within the dog breed database.
 
-Dog breed database taken from https://doi.org/10.1016/j.celrep.2017.03.079, adapted from GEO (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE90441)
+Dog breed database taken from https://doi.org/10.1016/j.celrep.2017.03.079, original data available at https://www.ncbi.nlm.nih.gov/data-hub/genome/GCF_000002285.5/.
 This project was developed as part of the Birkbeck University Biocomputing module (Spring 2023).
 
 # Project File Structure
