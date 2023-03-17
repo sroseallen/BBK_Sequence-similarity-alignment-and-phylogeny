@@ -95,7 +95,7 @@ for i in dog_database.index:
     dog_database.loc[i, "p_value"] = p_value # writes score to dataframe
 
 # output table of aligned scores sorted by alignment score
-dog_database = dog_database.sort_values("p_value", ascending=False)
+dog_database = dog_database.sort_values("p_value", ascending=True)
 dog_database.to_csv("results/final/similarity_alignment.csv")
 
 # phylogeny tree
