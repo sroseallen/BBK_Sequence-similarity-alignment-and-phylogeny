@@ -1,0 +1,23 @@
+<phyloxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phyloxml.org" xsi:schemaLocation="http://www.phyloxml.org http://www.phyloxml.org/1.10/phyloxml.xsd">
+  <phylogeny rooted="true">
+    <clade>
+      <color>
+        <red>0</red>
+        <green>128</green>
+        <blue>0</blue>
+      </color>
+      <clade>
+        <name>UNKNOWN SEQUENCE</name>
+        <branch_length>0.002240812668060921</branch_length>
+      </clade>
+      <clade>
+        <name>gb|CM023446.1|boxer</name>
+        <branch_length>0.00044816253361218417</branch_length>
+      </clade>
+      <clade>
+        <name>gb|MW916043.1|Portuguese Warren dog, small size, smooth hair</name>
+        <branch_length>0.0005079175380938161</branch_length>
+      </clade>
+    </clade>
+  </phylogeny>
+</phyloxml>
