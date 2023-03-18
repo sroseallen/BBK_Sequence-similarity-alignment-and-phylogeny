@@ -107,7 +107,7 @@ class MysterySequence:
 
         # output table of aligned scores sorted by alignment score
         aligned_database = database.sort_values("raw_alignment_score", ascending=False)
-        print("The most similar sequence is", database.loc[0, "breed"])
+        print("The most similar sequence is", aligned_database.iloc[0, 0])
         save_path = save_dir + "similarity_alignment_raw_scores.csv"
         aligned_database.to_csv(save_path)
 
@@ -179,6 +179,7 @@ class MysterySequence:
             aligned_database.loc[i, "p_value"] = p_value  # writes score to dataframe
 
         aligned_database = aligned_database.sort_values("E_value", ascending=True)
+        print("The most statistically likely alignment is against", aligned_database.iloc[0, 0])
         save_path = save_dir + "similarity_alignment_statistical_test.csv"
         aligned_database.to_csv(save_path)
 
