@@ -23,7 +23,7 @@ This package can be either called in its entirely using the command line, which 
 
 Instructions are provided for producing the default 3 main outputs using either method, but please see the **/docs** folder for further information on customisation.
 
-# (Automatic) Using this package to automatically perform all functions - alignment, statistical testing, and phylogeny outputs
+## (Automatic) Using this package to automatically perform all functions - alignment, statistical testing, and phylogeny outputs
 
 1. Clone this repository and open it as below:
 *please ensure you have the packages listed in requirement.txt already installed*
@@ -44,7 +44,7 @@ python similarity_checker
 
 4. Once the program has run, locate your results in the **/results/final** folder. 
 
-# (Manual) Importing this package to your python environment and manually calling specific functions (please see documentation)
+## (Manual) Importing this package to your python environment and manually calling specific functions (please see documentation)
 
 1. Clone this repository and open it as below:
 *please ensure you have the packages listed in requirement.txt already installed*

@@ -27,32 +27,32 @@ There are four methods for the MysterySequence class, which are detailed below (
 Creates a MysterySequence instance from a .fasta file (path to the .fasta file defined in sequence_directory). Must be a .fasta file, otherwise the class instance will not be created.
 
 Arguments:
-    self: Instance name
-    seq: Instance attribute containing the sequence information from the .fasta file
-    sequence_directory: Where the unknown sequence is saved - this defaults to the data folder in the project directories, but can be specified to any path accessible.
+  *self: Instance name
+  *seq: Instance attribute containing the sequence information from the .fasta file
+  *sequence_directory: Where the unknown sequence is saved - this defaults to the data folder in the project directories, but can be specified to any path accessible.
 
 ## .alignment (self, database=reference_database, save_dir="results/final/")
 Performs a pairwise alignment of the unknown sequence to each sequence in the class-defined reference database.
 
 Arguments:
-    self: An object of the class MysterySequence
-    database: A pandas dataframe defined for all class objects, defaults to the dog sequence reference database for this class
-    save_dir: Path to the directory/folder the output should be saved in (defaults to the "results/final/" folder in the package directory)
+  *self: An object of the class MysterySequence
+  *database: A pandas dataframe defined for all class objects, defaults to the dog sequence reference database for this class
+  *save_dir: Path to the directory/folder the output should be saved in (defaults to the "results/final/" folder in the package directory)
 
 ## .karlin_altchul (self, aligned_database, k:float=0.1, save_dir="results/final/")
 For a saved aligned file, performs Karlin-Altschul statistical test for each alignment, and records E-value and P-value in the database.
 
 Arguments:
-    self: An object of the class MysterySequence
-    aligned_database: A pandas dataframe, which MUST include at minimum the reference sequences and the raw alignment scores for each sequence. 
-    k: Normalising constant for the Karlin-Altschul test. Defaults to 0.1, value provided in 'BLAST: An essential guide to the Basic Local Alignment Tool, 2003'
-    save_dir: Path to the directory/folder the output should be saved in (defaults to the "results/final/" folder in the package directory)
+  *self: An object of the class MysterySequence
+  *aligned_database: A pandas dataframe, which MUST include at minimum the reference sequences and the raw alignment scores for each sequence. 
+  *k: Normalising constant for the Karlin-Altschul test. Defaults to 0.1, value provided in 'BLAST: An essential guide to the Basic Local Alignment Tool, 2003'
+  *save_dir: Path to the directory/folder the output should be saved in (defaults to the "results/final/" folder in the package directory)
 
 ## .phylogeny (self:, database=reference_database, bootstrap_iteration=20, save_dir="results/final/")
 Produces a phylogenetic tree including the entire reference database and the unknown sequence.
 
 Arguments:
-    self: An object of the class MysterySequence
-    database: A pandas dataframe defined for all class objects (defaults to the dog sequence reference database for this class)
-    bootstrap_iteration: Number of repeat trees created in generating the consensus tree (defaults to 20)
-    save_dir: Path to the directory/folder the outputs should be saved in (defaults to the "results/final" folder in the package directory)
+  *self: An object of the class MysterySequence
+  *database: A pandas dataframe defined for all class objects (defaults to the dog sequence reference database for this class)
+  *bootstrap_iteration: Number of repeat trees created in generating the consensus tree (defaults to 1 - no bootstrapping enabled by default).
+  *save_dir: Path to the directory/folder the outputs should be saved in (defaults to the "results/final" folder in the package directory)

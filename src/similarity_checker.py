@@ -11,6 +11,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 class MysterySequence:
     """
     A class to handle the unknown sequence to be aligned and described against the reference database.
@@ -26,46 +27,61 @@ class MysterySequence:
     Object Attributes:
         seq (Bio.Seq): Sequence object for the unknown sequence
         sequence_path(str): Filepath for the unknown sequence
-    
+
     Object Methods:
         __init__(self, seq, sequence_directory=".\data\seq"): Create a MysterySequence object
         alignment(self, database=reference_database, save_dir="results/final/"): Align unknown sequence to all sequences in the reference database
         karlin_altschul(self, aligned_database, k:float=0.1, save_dir="results/final/"): Add E- and P- values to all aligned raw scores
-        phylogeny(self:, database=reference_database, bootstrap_iteration=20, save_dir="results/final/"): Produce a consensus phylogeny tree for the ref database and unknown sequence
+        phylogeny(self:, database=reference_database, bootstrap_iteration=1, save_dir="results/final/"): Produce a consensus phylogeny tree for the ref database and unknown sequence
     """
-    database_list = list(SeqIO.parse("..\data\dog_breeds.fa", "fasta")) #Note: parses sequence attributes as a string
-    reference_breeds = [] # initialise lists for input into pandas dataframe
+    # Note: parses sequence attributes as a string
+    database_list = list(
+        SeqIO.parse("..\data\dog_breeds.fa", "fasta")
+    )  
+    reference_breeds = []  # initialise lists for input into pandas dataframe
     reference_sample_id = []
     reference_sequence = []
 
-    for dog in database_list: # when optimising: Bio.SeqIO.to_dict(), and Bio.index() might get 1-step dictionary?
-        description_list = dog.description.split('[')
+    for (
+        dog
+    ) in (
+        database_list
+    ):
+        description_list = dog.description.split("[")
         breed = description_list[7][6:-2]
-        reference_breeds.append(breed) # adds data for each dog to the dataframe row by row
+        reference_breeds.append(
+            breed
+        )  # adds data for each dog to the dataframe row by row
         reference_sample_id.append(dog.id)
         reference_sequence.append("".join(dog.seq))
 
-    reference_database = pd.DataFrame (
+    reference_database = pd.DataFrame(
         {
-            "breed":reference_breeds,
-            "sample_id":reference_sample_id,
-            "sequence":reference_sequence,
-            "align_score":0
+            "breed": reference_breeds,
+            "sample_id": reference_sample_id,
+            "sequence": reference_sequence,
+            "align_score": 0,
         }
     )
 
-    def __init__(self, sequence_path:str = "..\data\seq", seq = '') -> "MysterySequence":
+    def __init__(self, sequence_path: str = "..\data\seq") -> "MysterySequence":
         """
         Creates a MysterySequence instance from a .fasta file (path to the .fasta file defined in sequence_directory)
         """
         self.sequence_path = sequence_path
-        for filename in os.listdir(sequence_path): # generic to allow any named fasta file (tests x2: is there a file in this folder? is this a fasta file?)
+        for filename in os.listdir(
+            sequence_path
+        ):  # generic to allow any named fasta file
             if filename.endswith(".fa"):
                 path = os.path.join(sequence_path, filename)
                 read = SeqIO.read(path, "fasta")
         self.seq = read.seq
 
-    def alignment(self:"MysterySequence", database:pd.DataFrame = reference_database, save_dir:str = "../results/final/") -> pd.DataFrame:
+    def alignment(
+        self: "MysterySequence",
+        database: pd.DataFrame = reference_database,
+        save_dir: str = "../results/final/",
+    ) -> pd.DataFrame:
         """
         Performs a pairwise alignment of the unknown sequence to each sequence in the class-defined reference database.
 
@@ -79,25 +95,36 @@ class MysterySequence:
 
         # perform alignment for the mystery sequence against all sequences in the database
         for i in database.index:
-            print("Now checking alignment against:", i, database.loc[i, "breed"]) # progress bar
-            alignment = aligner.align(database.loc[i, "sequence"], self.seq) # Smith-Waterman local alignment
-            database.loc[i, "raw_alignment_score"] = alignment.score # writes alignment score to dataframe, saves
-        
+            print(
+                "Now checking alignment against:", i, database.loc[i, "breed"]
+            )  # progress bar
+            alignment = aligner.align(
+                database.loc[i, "sequence"], self.seq
+            )  # Global alignment
+            database.loc[
+                i, "raw_alignment_score"
+            ] = alignment.score  # writes alignment score to dataframe
+
         # output table of aligned scores sorted by alignment score
         aligned_database = database.sort_values("raw_alignment_score", ascending=False)
-        print("The most similar sequence is", database.loc[1, "breed"])
+        print("The most similar sequence is", database.loc[0, "breed"])
         save_path = save_dir + "similarity_alignment_raw_scores.csv"
         aligned_database.to_csv(save_path)
 
         return aligned_database
 
-    def karlin_altschul(self:"MysterySequence", aligned_database:pd.DataFrame, k:float = 0.1, save_dir:str = "../results/final/") -> pd.DataFrame:
+    def karlin_altschul(
+        self: "MysterySequence",
+        aligned_database: pd.DataFrame,
+        k: float = 0.1,
+        save_dir: str = "../results/final/",
+    ) -> pd.DataFrame:
         """
         For a saved aligned file, performs Karlin-Altschul statistical test for each alignment, and records E-value and P-value in the database.
 
         Arguments:
             self: An object of the class MysterySequence
-            aligned_database: A pandas dataframe, which MUST include at minimum the reference sequences and the raw alignment scores for each sequence. 
+            aligned_database: A pandas dataframe, which MUST include at minimum the reference sequences and the raw alignment scores for each sequence.
             k: Normalising constant for the Karlin-Altschul test. Defaults to 0.1, value provided in 'BLAST: An essential guide to the Basic Local Alignment Tool, 2003'
             save_dir: Path to the directory/folder the output should be saved in (defaults to the "results/final/" folder in the package directory)
         """
@@ -106,17 +133,21 @@ class MysterySequence:
         n = len(all_database_bases)
 
         # frequency of all bases in the mystery sequence
-        mystery_freq = {"A": self.seq.count("A") / m,
-                        "C": self.seq.count("C") / m,
-                        "T": self.seq.count("T") / m,
-                        "G": self.seq.count("G") / m}
+        mystery_freq = {
+            "A": self.seq.count("A") / m,
+            "C": self.seq.count("C") / m,
+            "T": self.seq.count("T") / m,
+            "G": self.seq.count("G") / m,
+        }
         p1 = sum(mystery_freq.values())
 
         # frequency of all bases in the reference database
-        dog_freq = {"A": all_database_bases.count("A") / n,
-                    "C": all_database_bases.count("C") / n,
-                    "T": all_database_bases.count("T") / n,
-                    "G": all_database_bases.count("G") / n}
+        dog_freq = {
+            "A": all_database_bases.count("A") / n,
+            "C": all_database_bases.count("C") / n,
+            "T": all_database_bases.count("T") / n,
+            "G": all_database_bases.count("G") / n,
+        }
         p2 = sum(dog_freq.values())
 
         # estimated score if predicted a perfect match - ie the % of bases in mystery_seq which would on average in the database align exactly like A:A, G:G, C:C or T:T
@@ -127,14 +158,25 @@ class MysterySequence:
 
         average_predicted = A_A + C_C + G_G + T_T
 
-        lambda_ka = math.log(1 / p1*p2) / average_predicted # equation to get Sλ, normalised score in K-A equation (converted from Sλ to λ alone by dividing by combined predicted frequency of perfectly aligned bases)
+        lambda_ka = (
+            math.log(1 / p1 * p2) / average_predicted
+        )  # equation to get Sλ, normalised score in K-A equation (converted from Sλ to λ alone by dividing by combined predicted frequency of perfectly aligned bases)
 
         # generate E (Expect) value and P value
         for i in aligned_database.index:
-            e_value = k * m * n * math.exp(-(lambda_ka * aligned_database.loc[i, "raw_alignment_score"])) # probability of getting a score higher than the one you generate above with a random sequence
-            p_value = 1 - math.exp(-e_value) # estimates p-value from e-value. Assumes a Gumbel extreme value distribution of sequences.
-            aligned_database.loc[i, "E_value"] = e_value # writes score to dataframe
-            aligned_database.loc[i, "p_value"] = p_value # writes score to dataframe
+            e_value = (
+                k
+                * m
+                * n
+                * math.exp(
+                    -(lambda_ka * aligned_database.loc[i, "raw_alignment_score"])
+                )
+            )  # probability of getting a score higher than the one you generate above with a random sequence
+            p_value = 1 - math.exp(
+                -e_value
+            )  # estimates p-value from e-value. Assumes a Gumbel extreme value distribution of sequences.
+            aligned_database.loc[i, "E_value"] = e_value  # writes score to dataframe
+            aligned_database.loc[i, "p_value"] = p_value  # writes score to dataframe
 
         aligned_database = aligned_database.sort_values("E_value", ascending=True)
         save_path = save_dir + "similarity_alignment_statistical_test.csv"
@@ -142,14 +184,19 @@ class MysterySequence:
 
         return aligned_database
 
-    def phylogeny(self:"MysterySequence", database:pd.DataFrame = reference_database, bootstrap_iteration:int = 20, save_dir:str = "../results/final/") -> Phylo:
+    def phylogeny(
+        self: "MysterySequence",
+        database: pd.DataFrame = reference_database,
+        bootstrap_iteration: int = 1,
+        save_dir: str = "../results/final/",
+    ) -> Phylo:
         """
         Produces a phylogenetic tree including the entire reference database and the unknown sequence.
 
         Arguments:
             self: An object of the class MysterySequence
             database: A pandas dataframe defined for all class objects (defaults to the dog sequence reference database for this class)
-            bootstrap_iteration: Number of repeat trees created in generating the consensus tree (defaults to 20)
+            bootstrap_iteration: Number of repeat trees created in generating the consensus tree (defaults to 1)
             save_dir: Path to the directory/folder the outputs should be saved in (defaults to the "results/final" folder in the package directory)
         """
         # global multiple sequence alignment for database of sequences
@@ -157,7 +204,7 @@ class MysterySequence:
         seqs.append(SeqRecord(self.seq, id="UNKNOWN SEQUENCE"))
         for i in database.index:
             info = (database.loc[i, "sample_id"]) + (database.loc[i, "breed"])
-            a = SeqRecord(Seq(database.loc[i, "sequence"]), id = info)
+            a = SeqRecord(Seq(database.loc[i, "sequence"]), id=info)
             seqs.append(a)
         multi_align = Align.MultipleSeqAlignment(seqs)
 
@@ -167,10 +214,12 @@ class MysterySequence:
         # Distance Calculator - identity is the scoring model (default, works for both DNA and protein sequences)
         calculator = Tree.DistanceCalculator("identity")
 
-        # bootstrapping to get the best tree: 
-        # "trees" produces 100 replicate trees, and returns just the main consensus tree (uses nearest neighbour joining method)
-        boot_constructor = Tree.DistanceTreeConstructor(calculator, 'nj')
-        consensus_tree = bootstrap_consensus(multi_align, bootstrap_iteration, boot_constructor, majority_consensus)
+        # bootstrapping to get the best tree:
+        # "trees" can produce replicate trees if bootstrapping_iteration is provided, and returns just the main consensus tree (uses nearest neighbour joining method)
+        boot_constructor = Tree.DistanceTreeConstructor(calculator, "nj")
+        consensus_tree = bootstrap_consensus(
+            multi_align, bootstrap_iteration, boot_constructor, majority_consensus
+        )
 
         # draw() to get a matplotlib rooted tree image output (networkx not used as BioPhylo docs suggest branch lengths not indicative of evolutionary distance)
         consensus_tree.rooted = True
@@ -180,15 +229,16 @@ class MysterySequence:
         save_path = save_dir + "consensus_tree.xml"
         Phylo.write(consensus_tree, save_path, "phyloxml")
 
-        fig = plt.figure(figsize = (10, 20), dpi = 600)
-        axes = fig.add_subplot(1,1,1)
+        fig = plt.figure(figsize=(10, 20), dpi=600)
+        axes = fig.add_subplot(1, 1, 1)
         Phylo.draw(consensus_tree, axes=axes, do_show=False)
         save_path = save_dir + "consensus_tree.png"
         plt.savefig(save_path)
 
         return
-    
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     unknown = MysterySequence()
     output1 = unknown.alignment()
     output2 = unknown.karlin_altschul(aligned_database=output1)
