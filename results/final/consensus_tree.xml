@@ -7,16 +7,788 @@
         <blue>0</blue>
       </color>
       <clade>
-        <name>UNKNOWN SEQUENCE</name>
-        <branch_length>0.0017926501344487922</branch_length>
+        <branch_length>1.6088643451083151E-19</branch_length>
+        <confidence type="unknown">68.0</confidence>
+        <clade>
+          <name>gb|KU290830.1|Mixed breed</name>
+          <branch_length>-2.710505431213761E-20</branch_length>
+        </clade>
+        <clade>
+          <branch_length>1.8332969352135263E-18</branch_length>
+          <confidence type="unknown">80.0</confidence>
+          <clade>
+            <name>gb|KU290496.1|Mixed breed</name>
+            <branch_length>-4.743384504624082E-20</branch_length>
+          </clade>
+          <clade>
+            <branch_length>2.654549364320104E-08</branch_length>
+            <confidence type="unknown">44.0</confidence>
+            <clade>
+              <branch_length>0.00010553669848766704</branch_length>
+              <confidence type="unknown">29.0</confidence>
+              <clade>
+                <name>gb|MW916054.1|Portuguese Sheepdog</name>
+                <branch_length>0.0</branch_length>
+              </clade>
+              <clade>
+                <name>gb|MW916055.1|Portuguese Sheepdog</name>
+                <branch_length>0.0</branch_length>
+              </clade>
+            </clade>
+            <clade>
+              <branch_length>6.674619624363886E-20</branch_length>
+              <confidence type="unknown">20.0</confidence>
+              <clade>
+                <branch_length>0.00015696303237672552</branch_length>
+                <confidence type="unknown">30.0</confidence>
+                <clade>
+                  <name>gb|MW916023.1|Sloughi</name>
+                  <branch_length>6.337651990476114E-05</branch_length>
+                </clade>
+                <clade>
+                  <name>gb|MW916042.1|Portuguese Warren dog, small size, weired hair</name>
+                  <branch_length>5.6133489058502774E-05</branch_length>
+                </clade>
+              </clade>
+              <clade>
+                <branch_length>1.5871397302819262E-06</branch_length>
+                <confidence type="unknown">15.0</confidence>
+                <clade>
+                  <name>gb|KU290591.1|Mixed breed</name>
+                  <branch_length>0.0</branch_length>
+                </clade>
+                <clade>
+                  <branch_length>6.392170115053672E-06</branch_length>
+                  <confidence type="unknown">7.0</confidence>
+                  <clade>
+                    <branch_length>6.350595342004902E-05</branch_length>
+                    <confidence type="unknown">5.0</confidence>
+                    <clade>
+                      <branch_length>2.244516581148247E-05</branch_length>
+                      <confidence type="unknown">14.0</confidence>
+                      <clade>
+                        <branch_length>4.0688280315005576E-05</branch_length>
+                        <confidence type="unknown">29.0</confidence>
+                        <clade>
+                          <name>gb|KU291013.1|Mixed breed</name>
+                          <branch_length>6.7220534694101275E-18</branch_length>
+                        </clade>
+                        <clade>
+                          <name>gb|KU290567.1|German Shepherd</name>
+                          <branch_length>0.00010848749294560997</branch_length>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <branch_length>6.305506821407395E-05</branch_length>
+                        <confidence type="unknown">28.0</confidence>
+                        <clade>
+                          <name>gb|KU290986.1|Gambian local</name>
+                          <branch_length>5.975500448163475E-05</branch_length>
+                        </clade>
+                        <clade>
+                          <name>gb|KU290702.1|German shepherd</name>
+                          <branch_length>5.9755004481625235E-05</branch_length>
+                        </clade>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <branch_length>3.062950165049436E-05</branch_length>
+                      <confidence type="unknown">2.0</confidence>
+                      <clade>
+                        <branch_length>7.59303734970893E-05</branch_length>
+                        <confidence type="unknown">10.0</confidence>
+                        <clade>
+                          <name>gb|KU290781.1|Mixed breed</name>
+                          <branch_length>5.928816850912036E-05</branch_length>
+                        </clade>
+                        <clade>
+                          <branch_length>7.386316646298911E-05</branch_length>
+                          <confidence type="unknown">27.0</confidence>
+                          <clade>
+                            <name>gb|KU290640.1|Mixed breed</name>
+                            <branch_length>0.00017926501344489349</branch_length>
+                          </clade>
+                          <clade>
+                            <name>gb|KU290739.1|Mixed breed</name>
+                            <branch_length>0.00023902001792652322</branch_length>
+                          </clade>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <branch_length>3.5579912731412734E-05</branch_length>
+                        <confidence type="unknown">17.0</confidence>
+                        <clade>
+                          <name>gb|KU290649.1|Black Retriever</name>
+                          <branch_length>0.0</branch_length>
+                        </clade>
+                        <clade>
+                          <name>gb|KU290670.1|Mixed breed</name>
+                          <branch_length>0.0</branch_length>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <branch_length>9.989357760782278E-06</branch_length>
+                    <confidence type="unknown">2.0</confidence>
+                    <clade>
+                      <branch_length>5.85315862515699E-05</branch_length>
+                      <confidence type="unknown">2.0</confidence>
+                      <clade>
+                        <branch_length>2.837491051726107E-05</branch_length>
+                        <confidence type="unknown">3.0</confidence>
+                        <clade>
+                          <branch_length>4.612413654728252E-05</branch_length>
+                          <confidence type="unknown">7.0</confidence>
+                          <clade>
+                            <branch_length>4.6334210060943046E-05</branch_length>
+                            <confidence type="unknown">13.0</confidence>
+                            <clade>
+                              <branch_length>6.49480969767827E-05</branch_length>
+                              <confidence type="unknown">33.0</confidence>
+                              <clade>
+                                <name>gb|KU290667.1|Mixed breed</name>
+                                <branch_length>0.0</branch_length>
+                              </clade>
+                              <clade>
+                                <name>gb|KU290919.1|Canis Panther</name>
+                                <branch_length>0.0</branch_length>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <branch_length>3.7532100184641533E-05</branch_length>
+                              <confidence type="unknown">33.0</confidence>
+                              <clade>
+                                <name>gb|KU290531.1|Mixed breed</name>
+                                <branch_length>0.0002986477035065339</branch_length>
+                              </clade>
+                              <clade>
+                                <name>gb|KU290632.1|Indian local</name>
+                                <branch_length>0.0002986938335433652</branch_length>
+                              </clade>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <branch_length>0.00010990203114678846</branch_length>
+                            <confidence type="unknown">23.0</confidence>
+                            <clade>
+                              <name>gb|KU291073.1|Mixed breed</name>
+                              <branch_length>5.997469199811394E-05</branch_length>
+                            </clade>
+                            <clade>
+                              <name>gb|KU290634.1|Indian local</name>
+                              <branch_length>0.0</branch_length>
+                            </clade>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <branch_length>3.1010938902219314E-05</branch_length>
+                          <confidence type="unknown">14.0</confidence>
+                          <clade>
+                            <branch_length>4.468252009373343E-05</branch_length>
+                            <confidence type="unknown">31.0</confidence>
+                            <clade>
+                              <name>gb|KU290506.1|Mixed breed</name>
+                              <branch_length>0.00011951000896324377</branch_length>
+                            </clade>
+                            <clade>
+                              <name>gb|KU290726.1|Mixed breed</name>
+                              <branch_length>2.0139055353918245E-17</branch_length>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <branch_length>5.4061125800336324E-05</branch_length>
+                            <confidence type="unknown">27.0</confidence>
+                            <clade>
+                              <name>gb|KU290529.1|Mixed breed</name>
+                              <branch_length>0.00017926501344488682</branch_length>
+                            </clade>
+                            <clade>
+                              <name>gb|KU290694.1|Mixed breed</name>
+                              <branch_length>0.0001792650134448784</branch_length>
+                            </clade>
+                          </clade>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <branch_length>5.501139770739352E-05</branch_length>
+                        <confidence type="unknown">10.0</confidence>
+                        <clade>
+                          <branch_length>0.00010522171863490277</branch_length>
+                          <confidence type="unknown">11.0</confidence>
+                          <clade>
+                            <branch_length>9.424049054790013E-05</branch_length>
+                            <confidence type="unknown">28.0</confidence>
+                            <clade>
+                              <name>gb|KU290984.1|Dachshund</name>
+                              <branch_length>0.0003321537944427859</branch_length>
+                            </clade>
+                            <clade>
+                              <name>gb|KU290971.1|Cocker Spaniel</name>
+                              <branch_length>0.00011951000896325698</branch_length>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <branch_length>6.792541048982365E-05</branch_length>
+                            <confidence type="unknown">26.0</confidence>
+                            <clade>
+                              <name>gb|KU290900.1|Great Dane cross</name>
+                              <branch_length>0.0</branch_length>
+                            </clade>
+                            <clade>
+                              <name>gb|KU290537.1|Rottweiler cross</name>
+                              <branch_length>0.0</branch_length>
+                            </clade>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <branch_length>6.628133800878922E-05</branch_length>
+                          <confidence type="unknown">31.0</confidence>
+                          <clade>
+                            <name>gb|KU290594.1|Pit bull</name>
+                            <branch_length>5.975500448163196E-05</branch_length>
+                          </clade>
+                          <clade>
+                            <name>gb|KU290786.1|Mixed breed</name>
+                            <branch_length>5.975500448163196E-05</branch_length>
+                          </clade>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <branch_length>3.707736689423678E-05</branch_length>
+                        <confidence type="unknown">17.0</confidence>
+                        <clade>
+                          <branch_length>6.900675343101123E-05</branch_length>
+                          <confidence type="unknown">28.0</confidence>
+                          <clade>
+                            <name>gb|KU290585.1|Staffordshire Bull Terrier</name>
+                            <branch_length>0.00011951000896328972</branch_length>
+                          </clade>
+                          <clade>
+                            <name>gb|KU290775.1|Mixed breed</name>
+                            <branch_length>5.9755004481647055E-05</branch_length>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <branch_length>6.67450748060341E-05</branch_length>
+                          <confidence type="unknown">27.0</confidence>
+                          <clade>
+                            <name>gb|KU291092.1|Terrier cross</name>
+                            <branch_length>0.00023902001792650406</branch_length>
+                          </clade>
+                          <clade>
+                            <name>gb|KU290615.1|Indian local</name>
+                            <branch_length>0.00023902001792650202</branch_length>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <branch_length>0.00011354187229679807</branch_length>
+                      <confidence type="unknown">1.0</confidence>
+                      <clade>
+                        <branch_length>8.291869898144717E-05</branch_length>
+                        <confidence type="unknown">2.0</confidence>
+                        <clade>
+                          <branch_length>0.00012874028469474365</branch_length>
+                          <confidence type="unknown">5.0</confidence>
+                          <clade>
+                            <branch_length>4.893679079835164E-05</branch_length>
+                            <confidence type="unknown">16.0</confidence>
+                            <clade>
+                              <branch_length>0.00012991526163722266</branch_length>
+                              <confidence type="unknown">37.0</confidence>
+                              <clade>
+                                <name>gb|MW916034.1|Castro Laboreiro Watchdog</name>
+                                <branch_length>0.00011401529590746322</branch_length>
+                              </clade>
+                              <clade>
+                                <name>gb|MW916015.1|Castro Laboreiro Watchdog</name>
+                                <branch_length>0.0</branch_length>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <branch_length>8.63067951300736E-05</branch_length>
+                              <confidence type="unknown">32.0</confidence>
+                              <clade>
+                                <name>gb|MW916033.1|Castro Laboreiro Watchdog</name>
+                                <branch_length>0.0</branch_length>
+                              </clade>
+                              <clade>
+                                <name>gb|MW916035.1|Castro Laboreiro Watchdog</name>
+                                <branch_length>0.0</branch_length>
+                              </clade>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <branch_length>1.4602651541596408E-05</branch_length>
+                            <confidence type="unknown">5.0</confidence>
+                            <clade>
+                              <branch_length>2.5098300223627537E-05</branch_length>
+                              <confidence type="unknown">17.0</confidence>
+                              <clade>
+                                <name>gb|MW916075.1|EpagneulBreton</name>
+                                <branch_length>0.0012048482577364985</branch_length>
+                              </clade>
+                              <clade>
+                                <branch_length>0.00020208134940187351</branch_length>
+                                <confidence type="unknown">38.0</confidence>
+                                <clade>
+                                  <name>gb|MW916036.1|Castro Laboreiro Watchdog</name>
+                                  <branch_length>0.0</branch_length>
+                                </clade>
+                                <clade>
+                                  <name>gb|MW916037.1|Castro Laboreiro Watchdog</name>
+                                  <branch_length>0.0</branch_length>
+                                </clade>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <branch_length>0.0002562867241975935</branch_length>
+                              <confidence type="unknown">37.0</confidence>
+                              <clade>
+                                <name>gb|MW916065.1|Algarve Barrocal Dog</name>
+                                <branch_length>0.0003512130875654887</branch_length>
+                              </clade>
+                              <clade>
+                                <name>gb|MW916066.1|Algarve Barrocal Dog</name>
+                                <branch_length>7.3169393243030685E-06</branch_length>
+                              </clade>
+                            </clade>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <branch_length>3.085013244348068E-05</branch_length>
+                          <confidence type="unknown">1.0</confidence>
+                          <clade>
+                            <branch_length>0.0001516050775852174</branch_length>
+                            <confidence type="unknown">6.0</confidence>
+                            <clade>
+                              <branch_length>0.00024356159588060088</branch_length>
+                              <confidence type="unknown">10.0</confidence>
+                              <clade>
+                                <branch_length>0.00019216902470758505</branch_length>
+                                <confidence type="unknown">31.0</confidence>
+                                <clade>
+                                  <name>gb|KU290523.1|Mixed breed</name>
+                                  <branch_length>0.0005388252990326127</branch_length>
+                                </clade>
+                                <clade>
+                                  <name>gb|KU290988.1|Gambian local</name>
+                                  <branch_length>0.0008355398040448113</branch_length>
+                                </clade>
+                              </clade>
+                              <clade>
+                                <branch_length>6.875717748148005E-05</branch_length>
+                                <confidence type="unknown">8.0</confidence>
+                                <clade>
+                                  <branch_length>5.581772757036342E-05</branch_length>
+                                  <confidence type="unknown">10.0</confidence>
+                                  <clade>
+                                    <name>gb|KU290678.1|Mixed breed</name>
+                                    <branch_length>0.0001199919041607046</branch_length>
+                                  </clade>
+                                  <clade>
+                                    <branch_length>0.00015376923489834643</branch_length>
+                                    <confidence type="unknown">29.0</confidence>
+                                    <clade>
+                                      <name>gb|KU290872.1|Husky</name>
+                                      <branch_length>0.0001792650134448924</branch_length>
+                                    </clade>
+                                    <clade>
+                                      <name>gb|KU290805.1|Mixed breed</name>
+                                      <branch_length>0.00017926501344488893</branch_length>
+                                    </clade>
+                                  </clade>
+                                </clade>
+                                <clade>
+                                  <branch_length>7.223741622695661E-05</branch_length>
+                                  <confidence type="unknown">6.0</confidence>
+                                  <clade>
+                                    <branch_length>4.899942603337422E-05</branch_length>
+                                    <confidence type="unknown">7.0</confidence>
+                                    <clade>
+                                      <branch_length>3.0519338916528756E-05</branch_length>
+                                      <confidence type="unknown">15.0</confidence>
+                                      <clade>
+                                        <branch_length>1.9968545764380645E-05</branch_length>
+                                        <confidence type="unknown">19.0</confidence>
+                                        <clade>
+                                          <name>gb|KU290937.1|Mixed breed</name>
+                                          <branch_length>0.0</branch_length>
+                                        </clade>
+                                        <clade>
+                                          <branch_length>9.743451542438753E-05</branch_length>
+                                          <confidence type="unknown">35.0</confidence>
+                                          <clade>
+                                            <name>gb|KU290444.1|Camp dog</name>
+                                            <branch_length>0.0</branch_length>
+                                          </clade>
+                                          <clade>
+                                            <name>gb|KU290784.1|Mixed breed</name>
+                                            <branch_length>0.0</branch_length>
+                                          </clade>
+                                        </clade>
+                                      </clade>
+                                      <clade>
+                                        <branch_length>2.8696397926525804E-05</branch_length>
+                                        <confidence type="unknown">16.0</confidence>
+                                        <clade>
+                                          <name>gb|KU290571.1|Mixed breed</name>
+                                          <branch_length>0.0</branch_length>
+                                        </clade>
+                                        <clade>
+                                          <branch_length>0.00010603638666409042</branch_length>
+                                          <confidence type="unknown">30.0</confidence>
+                                          <clade>
+                                            <name>gb|KU290605.1|Mixed breed</name>
+                                            <branch_length>0.0</branch_length>
+                                          </clade>
+                                          <clade>
+                                            <name>gb|KU290767.1|Mixed breed</name>
+                                            <branch_length>0.0</branch_length>
+                                          </clade>
+                                        </clade>
+                                      </clade>
+                                    </clade>
+                                    <clade>
+                                      <branch_length>3.339410383497622E-05</branch_length>
+                                      <confidence type="unknown">17.0</confidence>
+                                      <clade>
+                                        <branch_length>7.710200813079124E-05</branch_length>
+                                        <confidence type="unknown">31.0</confidence>
+                                        <clade>
+                                          <name>gb|KU291006.1|German Shepherd cross</name>
+                                          <branch_length>5.9755004481629246E-05</branch_length>
+                                        </clade>
+                                        <clade>
+                                          <name>gb|KU290440.1|Camp dog</name>
+                                          <branch_length>5.9755004481626644E-05</branch_length>
+                                        </clade>
+                                      </clade>
+                                      <clade>
+                                        <branch_length>0.00013507741070835022</branch_length>
+                                        <confidence type="unknown">18.0</confidence>
+                                        <clade>
+                                          <name>gb|KU290707.1|Gambian local</name>
+                                          <branch_length>0.00011951000896325676</branch_length>
+                                        </clade>
+                                        <clade>
+                                          <name>gb|KU290400.1|Terrier cross</name>
+                                          <branch_length>5.975500448163055E-05</branch_length>
+                                        </clade>
+                                      </clade>
+                                    </clade>
+                                  </clade>
+                                  <clade>
+                                    <branch_length>6.24186979468469E-05</branch_length>
+                                    <confidence type="unknown">21.0</confidence>
+                                    <clade>
+                                      <branch_length>0.00017907889743875753</branch_length>
+                                      <confidence type="unknown">40.0</confidence>
+                                      <clade>
+                                        <name>gb|DQ480498.1|Miniature Schnauzer</name>
+                                        <branch_length>0.0007472520560439096</branch_length>
+                                      </clade>
+                                      <clade>
+                                        <name>gb|MW916030.1|Azores Cattle dog</name>
+                                        <branch_length>0.00044784803358861847</branch_length>
+                                      </clade>
+                                    </clade>
+                                    <clade>
+                                      <branch_length>0.00017353004402074102</branch_length>
+                                      <confidence type="unknown">36.0</confidence>
+                                      <clade>
+                                        <name>gb|MW916050.1|Estrela Mountain dog</name>
+                                        <branch_length>0.00029617697873502845</branch_length>
+                                      </clade>
+                                      <clade>
+                                        <name>gb|MW916019.1|Aidi</name>
+                                        <branch_length>2.5980436731313323E-06</branch_length>
+                                      </clade>
+                                    </clade>
+                                  </clade>
+                                </clade>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <branch_length>0.00010484588011964625</branch_length>
+                              <confidence type="unknown">34.0</confidence>
+                              <clade>
+                                <name>gb|MW916029.1|Azores Cattle dog</name>
+                                <branch_length>5.495326305004762E-05</branch_length>
+                              </clade>
+                              <clade>
+                                <name>gb|MW916043.1|Portuguese Warren dog, small size, smooth hair</name>
+                                <branch_length>3.8606772473823246E-05</branch_length>
+                              </clade>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <branch_length>0.0003854035101438469</branch_length>
+                            <confidence type="unknown">11.0</confidence>
+                            <clade>
+                              <branch_length>1.6715170253065926E-05</branch_length>
+                              <confidence type="unknown">14.0</confidence>
+                              <clade>
+                                <branch_length>0.00015659293610448792</branch_length>
+                                <confidence type="unknown">38.0</confidence>
+                                <clade>
+                                  <name>gb|KU290442.1|Camp dog</name>
+                                  <branch_length>0.0004182850313713557</branch_length>
+                                </clade>
+                                <clade>
+                                  <name>gb|KU290636.1|Indian local</name>
+                                  <branch_length>0.00017926501344485424</branch_length>
+                                </clade>
+                              </clade>
+                              <clade>
+                                <branch_length>0.00013746131504425275</branch_length>
+                                <confidence type="unknown">37.0</confidence>
+                                <clade>
+                                  <name>gb|KU290747.1|Shar Pei</name>
+                                  <branch_length>0.00035853002688972235</branch_length>
+                                </clade>
+                                <clade>
+                                  <name>gb|KU290934.1|Mixed breed</name>
+                                  <branch_length>0.00023902001792652468</branch_length>
+                                </clade>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <branch_length>3.762190868602408E-05</branch_length>
+                              <confidence type="unknown">15.0</confidence>
+                              <clade>
+                                <name>gb|KU290876.1|German Shepherd cross</name>
+                                <branch_length>0.00017926501344489902</branch_length>
+                              </clade>
+                              <clade>
+                                <branch_length>0.0002251388015630819</branch_length>
+                                <confidence type="unknown">38.0</confidence>
+                                <clade>
+                                  <name>gb|MW916022.1|Sloughi</name>
+                                  <branch_length>0.00023902001792651666</branch_length>
+                                </clade>
+                                <clade>
+                                  <name>gb|MW916016.1|Aidi</name>
+                                  <branch_length>1.1167282376600696E-17</branch_length>
+                                </clade>
+                              </clade>
+                            </clade>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <branch_length>1.6173206169031902E-05</branch_length>
+                          <confidence type="unknown">1.0</confidence>
+                          <clade>
+                            <branch_length>8.064439500054416E-05</branch_length>
+                            <confidence type="unknown">10.0</confidence>
+                            <clade>
+                              <branch_length>3.105333436788684E-05</branch_length>
+                              <confidence type="unknown">25.0</confidence>
+                              <clade>
+                                <name>gb|KU290887.1|Dachshund</name>
+                                <branch_length>1.5178830414797062E-18</branch_length>
+                              </clade>
+                              <clade>
+                                <branch_length>0.00020502294443615828</branch_length>
+                                <confidence type="unknown">31.0</confidence>
+                                <clade>
+                                  <name>gb|KU290610.1|Indian local</name>
+                                  <branch_length>5.97550044816312E-05</branch_length>
+                                </clade>
+                                <clade>
+                                  <name>gb|KU290953.1|Mastiff</name>
+                                  <branch_length>5.975500448163044E-05</branch_length>
+                                </clade>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <branch_length>2.7804179622576138E-05</branch_length>
+                              <confidence type="unknown">24.0</confidence>
+                              <clade>
+                                <name>gb|MW916077.1|EpagneulBreton</name>
+                                <branch_length>0.0001792650134449015</branch_length>
+                              </clade>
+                              <clade>
+                                <branch_length>0.00016785034608056922</branch_length>
+                                <confidence type="unknown">40.0</confidence>
+                                <clade>
+                                  <name>gb|MW916062.1|Algarve Barrocal Dog</name>
+                                  <branch_length>0.0</branch_length>
+                                </clade>
+                                <clade>
+                                  <name>gb|MW916064.1|Algarve Barrocal Dog</name>
+                                  <branch_length>0.0</branch_length>
+                                </clade>
+                              </clade>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <branch_length>5.3473844272777125E-05</branch_length>
+                            <confidence type="unknown">14.0</confidence>
+                            <clade>
+                              <branch_length>8.907770415918077E-05</branch_length>
+                              <confidence type="unknown">28.0</confidence>
+                              <clade>
+                                <name>gb|AY656744.1|English Springer Spaniel</name>
+                                <branch_length>0.00092397764908554</branch_length>
+                              </clade>
+                              <clade>
+                                <name>UNKNOWN SEQUENCE</name>
+                                <branch_length>0.0006296524674366689</branch_length>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <branch_length>8.155222336016258E-05</branch_length>
+                              <confidence type="unknown">24.0</confidence>
+                              <clade>
+                                <name>gb|CM023446.1|boxer</name>
+                                <branch_length>0.0010163767820802639</branch_length>
+                              </clade>
+                              <clade>
+                                <name>gb|KU290730.1|Mixed breed</name>
+                                <branch_length>0.00011951000896326153</branch_length>
+                              </clade>
+                            </clade>
+                          </clade>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <branch_length>7.635998429974813E-05</branch_length>
+                        <confidence type="unknown">5.0</confidence>
+                        <clade>
+                          <branch_length>2.769872358572158E-05</branch_length>
+                          <confidence type="unknown">8.0</confidence>
+                          <clade>
+                            <branch_length>7.42648032771648E-05</branch_length>
+                            <confidence type="unknown">20.0</confidence>
+                            <clade>
+                              <branch_length>0.0001208368769951707</branch_length>
+                              <confidence type="unknown">30.0</confidence>
+                              <clade>
+                                <name>gb|MH105046.1|Brazilian Terrier</name>
+                                <branch_length>0.0004455285718260967</branch_length>
+                              </clade>
+                              <clade>
+                                <name>gb|DQ480496.1|Irish Soft Coated Wheaten Terrier</name>
+                                <branch_length>0.0008417411688998002</branch_length>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <branch_length>0.00012216496494931483</branch_length>
+                              <confidence type="unknown">26.0</confidence>
+                              <clade>
+                                <name>gb|MW916071.1|Portuguese Pointing Dog-long hair</name>
+                                <branch_length>0.0</branch_length>
+                              </clade>
+                              <clade>
+                                <name>gb|MW916039.1|Portuguese Warren dog, medium size, weired hair</name>
+                                <branch_length>0.000113315892645048</branch_length>
+                              </clade>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <branch_length>5.992703662616205E-05</branch_length>
+                            <confidence type="unknown">22.0</confidence>
+                            <clade>
+                              <name>gb|MW916069.1|Portuguese Pointing Dog-long hair</name>
+                              <branch_length>0.0</branch_length>
+                            </clade>
+                            <clade>
+                              <name>gb|MW916070.1|Portuguese Pointing Dog-long hair</name>
+                              <branch_length>0.0</branch_length>
+                            </clade>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <branch_length>0.00019560665767060504</branch_length>
+                          <confidence type="unknown">5.0</confidence>
+                          <clade>
+                            <branch_length>3.119697033640304E-05</branch_length>
+                            <confidence type="unknown">9.0</confidence>
+                            <clade>
+                              <branch_length>4.4764546445134923E-05</branch_length>
+                              <confidence type="unknown">14.0</confidence>
+                              <clade>
+                                <branch_length>5.566916909729083E-05</branch_length>
+                                <confidence type="unknown">29.0</confidence>
+                                <clade>
+                                  <name>gb|MW916067.1|Portuguese Pointing Dog</name>
+                                  <branch_length>0.0</branch_length>
+                                </clade>
+                                <clade>
+                                  <name>gb|MW916068.1|Portuguese Pointing Dog</name>
+                                  <branch_length>0.0</branch_length>
+                                </clade>
+                              </clade>
+                              <clade>
+                                <branch_length>6.332789655467382E-05</branch_length>
+                                <confidence type="unknown">24.0</confidence>
+                                <clade>
+                                  <name>gb|MW916059.1|Portuguese Pointing Dog</name>
+                                  <branch_length>0.0</branch_length>
+                                </clade>
+                                <clade>
+                                  <name>gb|MW916061.1|Algarve Barrocal Dog</name>
+                                  <branch_length>0.0</branch_length>
+                                </clade>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <branch_length>0.0001184863500762809</branch_length>
+                              <confidence type="unknown">27.0</confidence>
+                              <clade>
+                                <name>gb|MW916026.1|Estrela Mountain dog</name>
+                                <branch_length>0.00011951000896326391</branch_length>
+                              </clade>
+                              <clade>
+                                <name>gb|MW916063.1|Algarve Barrocal Dog</name>
+                                <branch_length>0.0</branch_length>
+                              </clade>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <branch_length>5.867513919905006E-05</branch_length>
+                            <confidence type="unknown">13.0</confidence>
+                            <clade>
+                              <name>gb|MW916074.1|English Pointer</name>
+                              <branch_length>5.975500448163196E-05</branch_length>
+                            </clade>
+                            <clade>
+                              <branch_length>8.030173459866722E-05</branch_length>
+                              <confidence type="unknown">27.0</confidence>
+                              <clade>
+                                <name>gb|MW916017.1|Aidi</name>
+                                <branch_length>0.0007668558908475386</branch_length>
+                              </clade>
+                              <clade>
+                                <name>gb|MW916027.1|Portuguese Water dog</name>
+                                <branch_length>0.0001294691763768297</branch_length>
+                              </clade>
+                            </clade>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
       </clade>
       <clade>
-        <name>gb|CM023446.1|boxer</name>
-        <branch_length>0.0005975500448162641</branch_length>
-      </clade>
-      <clade>
-        <name>gb|MW916043.1|Portuguese Warren dog, small size, smooth hair</name>
-        <branch_length>0.0011353450851508406</branch_length>
+        <branch_length>1.4938751120422767E-05</branch_length>
+        <confidence type="unknown">4.0</confidence>
+        <clade>
+          <name>gb|KU290417.1|Mixed breed</name>
+          <branch_length>0.0</branch_length>
+        </clade>
+        <clade>
+          <name>gb|KU290735.1|Mixed breed</name>
+          <branch_length>0.0005377950403345766</branch_length>
+        </clade>
       </clade>
     </clade>
   </phylogeny>

@@ -29,11 +29,11 @@ class MysterySequence:
     
     Object Methods:
         __init__(self, seq, sequence_directory=".\data\seq"): Create a MysterySequence object
-        alignment(self, database=reference_database, mode="local", save_dir="results/final/"): Align unknown sequence to all sequences in the reference database
+        alignment(self, database=reference_database, save_dir="results/final/"): Align unknown sequence to all sequences in the reference database
         karlin_altschul(self, aligned_database, k:float=0.1, save_dir="results/final/"): Add E- and P- values to all aligned raw scores
-        phylogeny(self:, database=reference_database, bootstrap_iteration=100, save_dir="results/final/"): Produce a consensus phylogeny tree for the ref database and unknown sequence
+        phylogeny(self:, database=reference_database, bootstrap_iteration=20, save_dir="results/final/"): Produce a consensus phylogeny tree for the ref database and unknown sequence
     """
-    database_list = list(SeqIO.parse(".\data\dog_breeds.fa", "fasta")) #Note: parses sequence attributes as a string
+    database_list = list(SeqIO.parse("..\data\dog_breeds.fa", "fasta")) #Note: parses sequence attributes as a string
     reference_breeds = [] # initialise lists for input into pandas dataframe
     reference_sample_id = []
     reference_sequence = []
@@ -54,7 +54,7 @@ class MysterySequence:
         }
     )
 
-    def __init__(self, sequence_path:str = ".\data\seq", seq = '') -> "MysterySequence":
+    def __init__(self, sequence_path:str = "..\data\seq", seq = '') -> "MysterySequence":
         """
         Creates a MysterySequence instance from a .fasta file (path to the .fasta file defined in sequence_directory)
         """
@@ -65,7 +65,7 @@ class MysterySequence:
                 read = SeqIO.read(path, "fasta")
         self.seq = read.seq
 
-    def alignment(self:"MysterySequence", database:pd.DataFrame = reference_database, save_dir:str = "results/final/") -> pd.DataFrame:
+    def alignment(self:"MysterySequence", database:pd.DataFrame = reference_database, save_dir:str = "../results/final/") -> pd.DataFrame:
         """
         Performs a pairwise alignment of the unknown sequence to each sequence in the class-defined reference database.
 
@@ -85,12 +85,13 @@ class MysterySequence:
         
         # output table of aligned scores sorted by alignment score
         aligned_database = database.sort_values("raw_alignment_score", ascending=False)
+        print("The most similar sequence is", database.loc[1, "breed"])
         save_path = save_dir + "similarity_alignment_raw_scores.csv"
         aligned_database.to_csv(save_path)
 
         return aligned_database
 
-    def karlin_altschul(self:"MysterySequence", aligned_database:pd.DataFrame, k:float = 0.1, save_dir:str = "results/final/") -> pd.DataFrame:
+    def karlin_altschul(self:"MysterySequence", aligned_database:pd.DataFrame, k:float = 0.1, save_dir:str = "../results/final/") -> pd.DataFrame:
         """
         For a saved aligned file, performs Karlin-Altschul statistical test for each alignment, and records E-value and P-value in the database.
 
@@ -141,14 +142,14 @@ class MysterySequence:
 
         return aligned_database
 
-    def phylogeny(self:"MysterySequence", database:pd.DataFrame = reference_database, bootstrap_iteration:int = 100, save_dir:str = "results/final/") -> Phylo:
+    def phylogeny(self:"MysterySequence", database:pd.DataFrame = reference_database, bootstrap_iteration:int = 20, save_dir:str = "../results/final/") -> Phylo:
         """
         Produces a phylogenetic tree including the entire reference database and the unknown sequence.
 
         Arguments:
             self: An object of the class MysterySequence
             database: A pandas dataframe defined for all class objects (defaults to the dog sequence reference database for this class)
-            bootstrap_iteration: Number of repeat trees created in generating the consensus tree (defaults to 100)
+            bootstrap_iteration: Number of repeat trees created in generating the consensus tree (defaults to 20)
             save_dir: Path to the directory/folder the outputs should be saved in (defaults to the "results/final" folder in the package directory)
         """
         # global multiple sequence alignment for database of sequences
@@ -181,7 +182,7 @@ class MysterySequence:
 
         fig = plt.figure(figsize = (10, 20), dpi = 600)
         axes = fig.add_subplot(1,1,1)
-        Phylo.draw(consensus_tree, axes=axes, branch_labels=lambda c: c.branch_length, do_show=False)
+        Phylo.draw(consensus_tree, axes=axes, do_show=False)
         save_path = save_dir + "consensus_tree.png"
         plt.savefig(save_path)
 
