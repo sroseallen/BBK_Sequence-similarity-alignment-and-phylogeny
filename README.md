@@ -51,7 +51,7 @@ python similarity_checker
 
 ```bash
 git clone https://github.com/sparrow-rose/DogBreed_Project.git
-cd ./DogBreed_Project
+cd ./DogBreed_Project/src
 ```
 
 2. In your python environment (or from the command line), import all functions from similarity_checker
@@ -64,7 +64,7 @@ from similarity_checker import *
 
 ```python
 unknown = MysterySequence('file path to your unknown sequence')
-output1 = MysterySequence.alignment()
-output2 = MysterySequence.karlin_altschul(output1)
-output3 = MysterySequence.phylogeny()
+output1 = unknown.alignment()
+output2 = unknown.karlin_altschul(output1)
+output3 = unknown.phylogeny()
 ```
