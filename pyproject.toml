@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "DogBreed_Package_Sophie_Allen"
+name = "DogBreed_Identifier_Sophie_Allen"
 version = "0.0.1"
 authors = [
     { name = "Sophie Allen", email = "sallen10@student.bbk.ac.uk" },
@@ -19,3 +19,9 @@ classifiers = [
 
 [project.urls]
 "Homepage" = "https://github.com/sparrow-rose/DogBreed_Project"
+
+[tool.pytest.ini_options]
+pythonpath = "src/"
+addopts = [
+    "--import-mode=importlib",
+]
