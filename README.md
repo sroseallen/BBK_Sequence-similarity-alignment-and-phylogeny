@@ -38,8 +38,7 @@ cd ./DogBreed_Project
 3. Run the similarity_checker.py file within the **/src** folder:
 
 ```bash
-cd ./DogBreed_Project/src/
-python similarity_checker
+python ./src/similarity_checker.py
 ```
 
 4. Once the program has run, locate your results in the **/results/final** folder. 
@@ -51,13 +50,13 @@ python similarity_checker
 
 ```bash
 git clone https://github.com/sparrow-rose/DogBreed_Project.git
-cd ./DogBreed_Project/src
+cd ./DogBreed_Project/
 ```
 
 2. In your python environment (or from the command line), import all functions from similarity_checker
 
 ```python
-from similarity_checker import *
+from src.similarity_checker import *
 ```
 
 3. Run the following functions to generate the main outputs for your unknown sequence (please see the documentation for further information, the below uses the default parameters)
@@ -67,4 +66,18 @@ unknown = MysterySequence('file path to your unknown sequence')
 output1 = unknown.alignment()
 output2 = unknown.karlin_altschul(output1)
 output3 = unknown.phylogeny()
+```
+
+# To run tests
+
+1. Navigate to the tests folder and run the unit test files using pytest (see requirements.txt file)
+
+```bash
+git clone https://github.com/sparrow-rose/DogBreed_Project.git
+cd ./DogBreed_Project/
+pytest ./tests/test_similarity_checker_parent_class.py
+pytest ./tests/test_similarity_checker_init.py
+pytest ./tests/test_similarity_checker_alignment.py
+pytest ./tests/test_similarity_checker_karlin_altschul.py
+pytest ./tests/test_similarity_checker_phylogeny.py
 ```

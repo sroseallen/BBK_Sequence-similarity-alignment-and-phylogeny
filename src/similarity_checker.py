@@ -18,7 +18,7 @@ class MysterySequence:
     Contains class attributes/methods for the reference dog database set.
 
     Class Attributes:
-        database_list(List): Reads in all data from the reference database in the .\data file of this module.
+        database_list(List): Reads in all data from the reference database in the ./data file of this module.
         reference_breeds(List): List of breeds in the reference database
         reference_sample_id(List) List of samples in the reference database
         reference_sequence(List): List of all sequences in the reference database
@@ -29,14 +29,14 @@ class MysterySequence:
         sequence_path(str): Filepath for the unknown sequence
 
     Object Methods:
-        __init__(self, seq, sequence_directory=".\data\seq"): Create a MysterySequence object
+        __init__(self, seq, sequence_directory="./data/seq"): Create a MysterySequence object
         alignment(self, database=reference_database, save_dir="results/final/"): Align unknown sequence to all sequences in the reference database
         karlin_altschul(self, aligned_database, k:float=0.1, save_dir="results/final/"): Add E- and P- values to all aligned raw scores
         phylogeny(self:, database=reference_database, bootstrap_iteration=1, save_dir="results/final/"): Produce a consensus phylogeny tree for the ref database and unknown sequence
     """
-    # Note: parses sequence attributes as a string
+    # Note: parses individual sequence attributes as a string
     database_list = list(
-        SeqIO.parse("..\data\dog_breeds.fa", "fasta")
+        SeqIO.parse("./data/dog_breeds.fa", "fasta")
     )  
     reference_breeds = []  # initialise lists for input into pandas dataframe
     reference_sample_id = []
@@ -64,7 +64,7 @@ class MysterySequence:
         }
     )
 
-    def __init__(self, sequence_path: str = "..\data\seq") -> "MysterySequence":
+    def __init__(self, sequence_path: str = "./data/seq") -> "MysterySequence":
         """
         Creates a MysterySequence instance from a .fasta file (path to the .fasta file defined in sequence_directory)
         """
@@ -80,7 +80,7 @@ class MysterySequence:
     def alignment(
         self: "MysterySequence",
         database: pd.DataFrame = reference_database,
-        save_dir: str = "../results/final/",
+        save_dir: str = "./results/final/",
     ) -> pd.DataFrame:
         """
         Performs a pairwise alignment of the unknown sequence to each sequence in the class-defined reference database.
@@ -117,7 +117,7 @@ class MysterySequence:
         self: "MysterySequence",
         aligned_database: pd.DataFrame,
         k: float = 0.1,
-        save_dir: str = "../results/final/",
+        save_dir: str = "./results/final/",
     ) -> pd.DataFrame:
         """
         For a saved aligned file, performs Karlin-Altschul statistical test for each alignment, and records E-value and P-value in the database.
@@ -189,7 +189,7 @@ class MysterySequence:
         self: "MysterySequence",
         database: pd.DataFrame = reference_database,
         bootstrap_iteration: int = 1,
-        save_dir: str = "../results/final/",
+        save_dir: str = "./results/final/",
     ) -> Phylo:
         """
         Produces a phylogenetic tree including the entire reference database and the unknown sequence.
