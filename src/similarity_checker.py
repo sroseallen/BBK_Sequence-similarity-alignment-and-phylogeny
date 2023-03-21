@@ -34,10 +34,13 @@ class MysterySequence:
         karlin_altschul(self, aligned_database, k:float=0.1, save_dir="results/final/"): Add E- and P- values to all aligned raw scores
         phylogeny(self:, database=reference_database, bootstrap_iteration=1, save_dir="results/final/"): Produce a consensus phylogeny tree for the ref database and unknown sequence
     """
-    # Note: parses individual sequence attributes as a string
-    database_list = list(
-        SeqIO.parse("./data/reference/dog_breeds.fa", "fasta")
-    )  
+    try:
+        database_list = list(
+            SeqIO.parse("./data/reference/dog_breeds.fa", "fasta")
+        )
+    except:
+        raise FileNotFoundError ("No reference file found - please ensure there is a .fasta format dog_breeds database file in the ./data/reference directory.")
+    
     reference_breeds = []  # initialise lists for input into pandas dataframe
     reference_sample_id = []
     reference_sequence = []
@@ -69,13 +72,19 @@ class MysterySequence:
         Creates a MysterySequence instance from a .fasta file (path to the .fasta file defined in sequence_directory)
         """
         self.sequence_path = sequence_path
+        if len(os.listdir(sequence_path)) > 1:
+            raise OSError ("Too many files! Please ensure there is only one fasta file in the sequence directory")
+        if len(os.listdir(sequence_path)) == 0:
+            raise FileNotFoundError ("No file found! Please ensure your .fasta sequence file is saved in the specified directory.")
         for filename in os.listdir(
             sequence_path
         ):  # generic to allow any named fasta file
-            if filename.endswith(".fa"):
-                path = os.path.join(sequence_path, filename)
+            path = os.path.join(sequence_path, filename)
+            if filename.endswith(".fa") or filename.endswith(".fasta"):
                 read = SeqIO.read(path, "fasta")
-        self.seq = read.seq
+                self.seq = read.seq
+            else:
+                raise FileNotFoundError ("No fasta file found, please ensure your .fasta sequence file is saved in the specified directory.")
 
     def alignment(
         self: "MysterySequence",
