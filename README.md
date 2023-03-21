@@ -75,9 +75,9 @@ output3 = unknown.phylogeny()
 ```bash
 git clone https://github.com/sparrow-rose/DogBreed_Project.git
 cd ./DogBreed_Project/
-pytest ./tests/test_similarity_checker_parent_class.py
-pytest ./tests/test_similarity_checker_init.py
-pytest ./tests/test_similarity_checker_alignment.py
-pytest ./tests/test_similarity_checker_karlin_altschul.py
-pytest ./tests/test_similarity_checker_phylogeny.py
+pytest ./tests/test_scripts/test_similarity_checker_parent_class.py
+pytest ./tests/test_scripts/test_similarity_checker_init.py
+pytest ./tests/test_scripts/test_similarity_checker_alignment.py
+pytest ./tests/test_scripts/test_similarity_checker_karlin_altschul.py
+pytest ./tests/test_scripts/test_similarity_checker_phylogeny.py
 ```
