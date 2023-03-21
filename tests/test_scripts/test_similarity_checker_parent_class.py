@@ -1,10 +1,16 @@
+import similarity_checker as sim
+
 from Bio.SeqRecord import SeqRecord
 import os
 import pandas as pd
-
-import similarity_checker as sim
+import pytest
 
 class TestParentClass:
+    def test_database_file(self):
+        """Test 1.0: Raises an error if the reference file is missing"""
+        with pytest.raises(FileNotFoundError):
+            sim.MysterySequence("./tests/test_empty")
+
     def test_database_list_1(self):
         """Test 1.1: The correct reference database file is in the ./data file"""
         path = "./data/reference/dog_breeds.fa"
