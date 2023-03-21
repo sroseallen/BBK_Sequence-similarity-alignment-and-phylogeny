@@ -36,7 +36,7 @@ class MysterySequence:
     """
     # Note: parses individual sequence attributes as a string
     database_list = list(
-        SeqIO.parse("./data/dog_breeds.fa", "fasta")
+        SeqIO.parse("./data/reference/dog_breeds.fa", "fasta")
     )  
     reference_breeds = []  # initialise lists for input into pandas dataframe
     reference_sample_id = []

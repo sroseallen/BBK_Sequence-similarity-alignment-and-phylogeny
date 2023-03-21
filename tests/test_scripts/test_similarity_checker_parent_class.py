@@ -7,12 +7,12 @@ import similarity_checker as sim
 class TestParentClass:
     def test_database_list_1(self):
         """Test 1.1: The correct reference database file is in the ./data file"""
-        path = "./data/dog_breeds.fa"
+        path = "./data/reference/dog_breeds.fa"
         assert os.path.exists(path)
 
     def test_database_list_2(self):
         """Test 1.2: The files in the data directory are definitely fasta files"""
-        assert [".fa" in x for x in os.listdir("./data")]
+        assert [".fa" in x for x in os.listdir("./data/reference")]
 
     def test_database_list_3(self):
         """Test 1.3: The database has been successfully imported a SeqRecord object"""
