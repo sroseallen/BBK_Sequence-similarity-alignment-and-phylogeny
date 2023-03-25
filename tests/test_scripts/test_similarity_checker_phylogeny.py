@@ -22,8 +22,6 @@ class TestPhylogeny:
         test_output_1: The clustal alignment is saved to the specified directory
         test_output_2: The phylogeny .xml alignment is saved to the specified directory
         test_output_3: The phylogeny alignment is saved as a static .png to the specified directory
-        test_seq_distance_1: The nearest neighbour to the mystery sequence is seq2 (100% alignment)
-        tset_seq_distance_2: The furthest neighbour to the mystery sequence is seq5 (0% alignment)
     """
 
     test_seq = sim.MysterySequence("./tests/test_seq")
