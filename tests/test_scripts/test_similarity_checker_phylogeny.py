@@ -3,13 +3,8 @@ import similarity_checker as sim
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio import Align
-from Bio import AlignIO
-from Bio import Phylo
-from Bio.Phylo import TreeConstruction as Tree
-from Bio.Phylo.Consensus import *
 import os
 import pandas as pd
-import matplotlib.pyplot as plt
 
 class TestPhylogeny:
     """
@@ -76,11 +71,3 @@ class TestPhylogeny:
     def test_output_3(self):
         """The phylogeny alignment is saved as a static .png to the specified directory"""
         assert os.path.exists("./tests/test_reference/consensus_tree.png")
-
-    def test_seq_distance_1(self, output=phyl):
-        """The nearest neighbour to the mystery sequence is seq2 (100% alignment)"""
-        pass
-
-    def test_seq_distance_2(self, output=phyl):
-        """The furthest neighbour to the mystery sequence is seq5 (0% alignment)"""
-        pass
