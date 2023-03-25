@@ -5,6 +5,22 @@ import os
 import pytest
 
 class TestInit:
+    """
+    Test class for the similarity_checker.MysterySequence.__init__ function.
+
+    Class Attributes:
+        instance1: A test sequence of 10 characters long.
+
+    Object Methods (tests run):
+        test_seqfile_1: Confirms the default directory only has one sequence in it
+        test_seqfile_2: Raises an error if there are multiple files in the sequence directory
+        test_seqfile_3: Raises an error if there are no files in the sequence directory
+        test_seqfile_4: Raises an error if there are no fasta files specifically in the sequence directory
+        test_instance_attr_1: Checks that the class instance has a string 'self.sequence_path' attribute
+        test_instance_attr_2: Checks that the instance has a 'self.seq' attribute
+        test_instance_class: Checks that the instance is successfully a MysterySequence instance
+    """
+
     instance1 = sim.MysterySequence("./tests/test_seq")
 
     def test_seqfile_1(self):

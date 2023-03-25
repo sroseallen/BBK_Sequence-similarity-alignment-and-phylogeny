@@ -1,0 +1,39 @@
+<phyloxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phyloxml.org" xsi:schemaLocation="http://www.phyloxml.org http://www.phyloxml.org/1.10/phyloxml.xsd">
+  <phylogeny rooted="true">
+    <clade>
+      <color>
+        <red>0</red>
+        <green>128</green>
+        <blue>0</blue>
+      </color>
+      <clade>
+        <name>4seq4</name>
+        <branch_length>0.0</branch_length>
+      </clade>
+      <clade>
+        <branch_length>0.0</branch_length>
+        <confidence type="unknown">100.0</confidence>
+        <clade>
+          <name>UNKNOWN SEQUENCE</name>
+          <branch_length>0.0</branch_length>
+        </clade>
+        <clade>
+          <name>2seq2</name>
+          <branch_length>0.0</branch_length>
+        </clade>
+      </clade>
+      <clade>
+        <branch_length>0.5</branch_length>
+        <confidence type="unknown">100.0</confidence>
+        <clade>
+          <name>5seq5</name>
+          <branch_length>0.4999999999999999</branch_length>
+        </clade>
+        <clade>
+          <name>3seq3</name>
+          <branch_length>0.5000000000000001</branch_length>
+        </clade>
+      </clade>
+    </clade>
+  </phylogeny>
+</phyloxml>
