@@ -48,7 +48,7 @@ Arguments:
   *k: Normalising constant for the Karlin-Altschul test. Defaults to 0.1, value provided in 'BLAST: An essential guide to the Basic Local Alignment Tool, 2003'
   *save_dir: Path to the directory/folder the output should be saved in (defaults to the "results/final/" folder in the package directory)
 
-## .phylogeny (self:, database=reference_database, bootstrap_iteration=20, save_dir="results/final/")
+## .phylogeny (self:, database=reference_database, bootstrap_iteration=1, save_dir="results/final/")
 Produces a phylogenetic tree including the entire reference database and the unknown sequence.
 
 Arguments:
