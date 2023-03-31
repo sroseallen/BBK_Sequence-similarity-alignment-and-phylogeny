@@ -8,10 +8,10 @@
       </color>
       <clade>
         <name>4seq4</name>
-        <branch_length>0.0</branch_length>
+        <branch_length>0.07500000000000001</branch_length>
       </clade>
       <clade>
-        <branch_length>0.0</branch_length>
+        <branch_length>0.22500000000000003</branch_length>
         <confidence type="unknown">100.0</confidence>
         <clade>
           <name>UNKNOWN SEQUENCE</name>
@@ -23,15 +23,15 @@
         </clade>
       </clade>
       <clade>
-        <branch_length>0.5</branch_length>
+        <branch_length>0.27499999999999997</branch_length>
         <confidence type="unknown">100.0</confidence>
         <clade>
           <name>5seq5</name>
-          <branch_length>0.4999999999999999</branch_length>
+          <branch_length>0.5499999999999998</branch_length>
         </clade>
         <clade>
           <name>3seq3</name>
-          <branch_length>0.5000000000000001</branch_length>
+          <branch_length>0.4500000000000002</branch_length>
         </clade>
       </clade>
     </clade>
